@@ -6,8 +6,6 @@ I'm trying to gather information about the chip to be able to send data from a m
 manufacturer: http://www.szucs.cn/  
 I've write to the manufacturer to ask the complete datasheet, no answer there.
 
-https://giters.com/Makuna/NeoPixelBus/issues/516
-
 ## Pinout
 ```
        +---------+
@@ -39,8 +37,15 @@ reference: https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datash
 
 English
 https://github.com/Differentunic/UCS8904-Datasheet/blob/main/UCS8904B.pdf
+Chinese
+http://www.led-stuebchen.de/download/UCS8904B.pdf
+Greeled
+https://www.gree-leds.com/web/userfiles/download/UCS8904BICEnglishdatasheet.pdf
+https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datasheet.html
 
 
-## Threads
+## Relevant Discussion
 
 https://forum.pjrc.com/index.php?threads/help-using-ucs8904b.75567/
+https://giters.com/Makuna/NeoPixelBus/issues/516
+
