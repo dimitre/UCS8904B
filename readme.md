@@ -22,7 +22,7 @@ OUTB --|         |-- DIN
 | Data bit | 16bit | 16bit | 16bit | 16bit |
 
 ## Pulse width timing. 
-The recommand value for controller
+The recommand value for controller  
 reference: https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datasheet.html
 |  Name  |        Description        | Typical Value | Unit |
 |:------:|:-------------------------:|:-------------:|:----:|
@@ -36,16 +36,16 @@ reference: https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datash
 ## Datasheets
 
 English
-https://github.com/Differentunic/UCS8904-Datasheet/blob/main/UCS8904B.pdf
+https://github.com/Differentunic/UCS8904-Datasheet/blob/main/UCS8904B.pdf  
 Chinese
-http://www.led-stuebchen.de/download/UCS8904B.pdf
+http://www.led-stuebchen.de/download/UCS8904B.pdf  
 Greeled
-https://www.gree-leds.com/web/userfiles/download/UCS8904BICEnglishdatasheet.pdf
-https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datasheet.html
+https://www.gree-leds.com/web/userfiles/download/UCS8904BICEnglishdatasheet.pdf  
+https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datasheet.html  
 
 
 ## Relevant Discussion
 
-https://forum.pjrc.com/index.php?threads/help-using-ucs8904b.75567/
-https://giters.com/Makuna/NeoPixelBus/issues/516
+https://forum.pjrc.com/index.php?threads/help-using-ucs8904b.75567/  
+https://giters.com/Makuna/NeoPixelBus/issues/516  
 
