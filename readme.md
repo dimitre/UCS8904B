@@ -8,6 +8,15 @@ I've write to the manufacturer to ask the complete datasheet, no answer there.
 
 https://giters.com/Makuna/NeoPixelBus/issues/516
 
+## Pinout
+```
+       +---------+
+OUTR --| o       |-- OUTW
+OUTG --|         |-- VDD
+OUTB --|         |-- DIN
+ GND --|         |-- DOUT
+       +---------+
+```
 
 ## Data Packet  
 |    PIN   |   R   |   G   |   B   |   W   |
@@ -25,12 +34,13 @@ reference: https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datash
 |   T1L  |   1 code,low level time   |      ≥0.4     |  μs  |
 | Treset | Reset code,low level time |       48      |  μs  |
 
-## Pinout
-```
-       +---------+
-OUTR --| o       |-- OUTW
-OUTG --|         |-- VDD
-OUTB --|         |-- DIN
- GND --|         |-- DOUT
-       +---------+
-```
+
+## Datasheets
+
+English
+https://github.com/Differentunic/UCS8904-Datasheet/blob/main/UCS8904B.pdf
+
+
+## Threads
+
+https://forum.pjrc.com/index.php?threads/help-using-ucs8904b.75567/
