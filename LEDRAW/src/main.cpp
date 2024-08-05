@@ -4,13 +4,15 @@
 #pragma message "__MK20DX256__"
 #endif
 
+#pragma message "v114"
+
 #define NUMPIXELS 3
 const static int16_t pin = 7;
 
 #define B16
 #ifdef B16
 	typedef uint16_t pixelType;
-	pixelType startMask = 0x8000;
+	pixelType startMask = 0x8000; 
 	float maxValue = 28000.0f;
 	uint16_t numChannelsPerPixel = 4;
 
@@ -18,23 +20,19 @@ const static int16_t pin = 7;
 	typedef uint8_t pixelType;
 	pixelType startMask = 0x80;
 	float maxValue = 64.0f;
-	// uint16_t numChannelsPerPixel = 3;
-	// float maxValue = 28000.0f;
-	uint16_t numChannelsPerPixel = 4;
+	uint16_t numChannelsPerPixel = 3;
 #endif
 
 pixelType * pixels;
 
 // static constexpr uint32_t Cycles = F_CPU / 1840000;
-// static constexpr uint32_t CyclesT0h = Cycles * 1 / 4;
-// static constexpr uint32_t CyclesT1h = Cycles * 2 / 3;
-
 static constexpr uint32_t Cycles = F_CPU / 800000;
-static constexpr uint32_t CyclesT0h = F_CPU / 4000000;
-static constexpr uint32_t CyclesT1h = F_CPU / 1250000;
+static constexpr uint32_t CyclesT0h = Cycles * 1 / 4;
+static constexpr uint32_t CyclesT1h = Cycles * 2 / 3;
+// static constexpr uint32_t CyclesT0h = F_CPU / 4000000;
+// static constexpr uint32_t CyclesT1h = F_CPU / 1250000;
 
 uint32_t endTime;
-// int16_t pin = 8;
 uint16_t numStripChannels = numChannelsPerPixel * NUMPIXELS;
 
 bool canShow() {
@@ -42,7 +40,6 @@ bool canShow() {
 	if (endTime > now) {
 		endTime = now;
 	}
-	// return (now - endTime) >= 300L;
 	// return (now - endTime) >= 300L;
 	return (now - endTime) >= 1300L;
 }
@@ -64,8 +61,6 @@ void setup() {
 }
 
 void loopSeno() {
-
-
 	for (int a=0; a<NUMPIXELS; a++) {
 		float r = std::sin(millis() * 0.002f  + a * 0.5f) * maxValue + maxValue;
 		float g = std::sin(millis() * 0.0015f + a * 0.5f) * maxValue + maxValue;
@@ -79,17 +74,10 @@ void loopSeno() {
 		// }
 
 	}
-
 }
 
-#pragma message "v114"
 
 void loop() {
-	// String msg = 
-	// 	String(pixels[0]) + "\t" +
-	// 	String(pixels[1]) + "\t" +
-	// 	String(pixels[2]) + "\t" ;
-	// Serial.println(msg);
 	// if (millis() > nextJump) {
 	// 	nextJump = millis() + 1000;
 	// 	Serial.println(Cycles);
@@ -103,7 +91,6 @@ void loop() {
 	// }
 
 	// noInterrupts();
-
 	while (!canShow())
 	;
 
