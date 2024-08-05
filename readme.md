@@ -48,4 +48,4 @@ https://www.gree-leds.com/ic-protocol/ucs8904b-ic-protocol-and-datasheet.html
 
 https://forum.pjrc.com/index.php?threads/help-using-ucs8904b.75567/  
 https://giters.com/Makuna/NeoPixelBus/issues/516  
-
+https://github.com/Makuna/NeoPixelBus/issues/817  
