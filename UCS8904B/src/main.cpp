@@ -18,7 +18,7 @@ void loop() {
 	Rgbw64Color cor(Rgbw64Color::Max, Rgbw64Color::Max, Rgbw64Color::Max, Rgbw64Color::Max);
 	Rgbw64Color cor2(0, 0, 0, 0);
 
-	for (int a=0; a<NUMPIXELS; a++) {
+	for (int a=0; a<PixelCount; a++) {
 		strip.SetPixelColor(a, ligado ? cor : cor2);
 	}
 	strip.Show();
@@ -30,7 +30,7 @@ void loop() {
 void old() {
 	float tempo = (double)millis() * mult;
 
-	for (uint16_t a=0; a<NUMPIXELS; a++) {
+	for (uint16_t a=0; a<PixelCount; a++) {
 
 	// for (uint16_t a=0; a<NUMPIXELS; a++) {
 		float t { tempo + (float)a * 0.1 };
