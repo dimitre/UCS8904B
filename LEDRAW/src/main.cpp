@@ -65,18 +65,14 @@ void setup() {
 }
 
 void loopSeno() {
-	for (int a=0; a<NUMPIXELS; a++) {
+	float maxValue = 28000.0f;
+	for (int a=0; a<3; a++) {
 		float r = std::sin(millis() * 0.002f  + a * 0.5f) * maxValue + maxValue;
 		float g = std::sin(millis() * 0.0015f + a * 0.5f) * maxValue + maxValue;
 		float b = std::sin(millis() * 0.001f  + a * 0.5f) * maxValue + maxValue;
 		float w = std::sin(millis() * 0.0005f + a * 0.5f) * maxValue + maxValue;
-		pixels[a * numChannelsPerPixel + 0] = static_cast<pixelType>(r);
-		pixels[a * numChannelsPerPixel + 1] = static_cast<pixelType>(g);
-		pixels[a * numChannelsPerPixel + 2] = static_cast<pixelType>(b);
-		// if (numChannelsPerPixel < 3) {
-		pixels[a * numChannelsPerPixel + 3] = static_cast<pixelType>(w);
-		// }
 
+		(uint16_t*)leds[0] = static_cast<uint16_t>(r);
 	}
 }
 
