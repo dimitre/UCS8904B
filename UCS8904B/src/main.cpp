@@ -13,47 +13,25 @@ void setup() {
 	pinMode(13, OUTPUT);
 }
 
-bool ligado = true;
-void loop() {
-	Rgbw64Color cor(Rgbw64Color::Max, Rgbw64Color::Max, Rgbw64Color::Max, Rgbw64Color::Max);
-	Rgbw64Color cor2(0, 0, 0, 0);
 
-	for (int a=0; a<PixelCount; a++) {
-		strip.SetPixelColor(a, ligado ? cor : cor2);
+
+void loop() {
+
+	float maxValue = 28000.0f;
+	for (int a=0; a<3; a++) {
+		float r = std::sin(millis() * 0.002f  + a * 0.5f) * maxValue + maxValue;
+		float g = std::sin(millis() * 0.0015f + a * 0.5f) * maxValue + maxValue;
+		float b = std::sin(millis() * 0.001f  + a * 0.5f) * maxValue + maxValue;
+		float w = std::sin(millis() * 0.0005f + a * 0.5f) * maxValue + maxValue;
+
+		Rgbw64Color cor(
+			static_cast<uint16_t>(r), 
+			static_cast<uint16_t>(g),
+			static_cast<uint16_t>(b),
+			static_cast<uint16_t>(w)
+		);
+		strip.SetPixelColor(a, cor);
+
 	}
 	strip.Show();
-	digitalWrite(13, ligado ? HIGH : LOW);
-	delay(500);
-	ligado = !ligado;
 }
-
-void old() {
-	float tempo = (double)millis() * mult;
-
-	for (uint16_t a=0; a<PixelCount; a++) {
-
-	// for (uint16_t a=0; a<NUMPIXELS; a++) {
-		float t { tempo + (float)a * 0.1 };
-        float tr { t + twopi*.66 };
-		tr = std::fmod(tr, twopi);
-		// float seno = std::sin(tr) * Rgbw64Color::Max*.5f + Rgbw64Color::Max*.5f;
-		// uint16_t v = static_cast<uint16_t>(constrain(seno, 0, 65535));
-
-		// Rgbw64Color cor(v, v, v, v);
-		// strip.SetPixelColor(a, cor);
-		// uint8_t v = static_cast<uint8_t>(constrain(seno, 0, 255));
-		// v = Adafruit_NeoPixel::gamma8(v);
-		// pixels.setPixelColor(a, pixels.Color(v,v,v));
-		// pixels2.setPixelColor(a, pixels.Color(v,v,v));
-	}
- 	// strip.Show();
-	delay(22);
-	// for (uint16_t a=50; a<NUMPIXELS; a++) {
-	// 	uint8_t v = 255;
-	// 	pixels.setPixelColor(a, pixels.Color(v,v,v));
-	// 	pixels2.setPixelColor(a, pixels.Color(v,v,v));
-	// }
-
-	// pixels.show();
-}
-
