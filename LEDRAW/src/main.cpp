@@ -1,4 +1,6 @@
 #include <Arduino.h>
+// #include <Tween.h>
+// Tween::Timeline timeline;
 
 #if defined(__MK20DX256__) 
 #pragma message "__MK20DX256__"
@@ -26,6 +28,7 @@ const static int16_t pin = 7;
 pixelType * pixels;
 
 // static constexpr uint32_t Cycles = F_CPU / 1840000;
+#define F_CPU 16000000
 static constexpr uint32_t Cycles = F_CPU / 800000;
 static constexpr uint32_t CyclesT0h = Cycles * 1 / 4;
 static constexpr uint32_t CyclesT1h = Cycles * 2 / 3;
@@ -41,7 +44,8 @@ bool canShow() {
 		endTime = now;
 	}
 	// return (now - endTime) >= 300L;
-	return (now - endTime) >= 1300L;
+	// return (now - endTime) >= 525L;
+	return (now - endTime) >= 600L;
 }
 
 unsigned long nextJump;
@@ -64,8 +68,8 @@ void loopSeno() {
 	for (int a=0; a<NUMPIXELS; a++) {
 		float r = std::sin(millis() * 0.002f  + a * 0.5f) * maxValue + maxValue;
 		float g = std::sin(millis() * 0.0015f + a * 0.5f) * maxValue + maxValue;
-		float b = std::sin(millis() * 0.003f  + a * 0.5f) * maxValue + maxValue;
-		float w = std::sin(millis() * 0.0025f + a * 0.5f) * maxValue + maxValue;
+		float b = std::sin(millis() * 0.001f  + a * 0.5f) * maxValue + maxValue;
+		float w = std::sin(millis() * 0.0005f + a * 0.5f) * maxValue + maxValue;
 		pixels[a * numChannelsPerPixel + 0] = static_cast<pixelType>(r);
 		pixels[a * numChannelsPerPixel + 1] = static_cast<pixelType>(g);
 		pixels[a * numChannelsPerPixel + 2] = static_cast<pixelType>(b);
